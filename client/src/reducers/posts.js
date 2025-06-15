@@ -1,26 +1,26 @@
-const reducers=(state,action)=>{
+export default (posts=[],action)=>{
     switch(action.type){
         case 'FETCH_ALL':
             return {
-                ...state,
+                ...posts,
                 posts: action.payload
             };
         case 'CREATE':
             return {
-                ...state,
-                posts: [...state.posts, action.payload]
+                ...posts,
+                posts: [...posts.posts, action.payload]
             };
-        case 'UPDATE':
+        case 'UPDATE': 
             return {
-                ...state,
-                posts: state.posts.map((post) => post._id === action.payload._id ? action.payload : post)
+                ...posts,
+                posts: posts.posts.map((post) => post._id === action.payload._id ? action.payload : post)
             };
         case 'DELETE':
             return {
-                ...state,
-                posts: state.posts.filter((post) => post._id !== action.payload)
+                ...posts,
+                posts: posts.posts.filter((post) => post._id !== action.payload)
             };
         default:
-            return state;
+            return posts;
     }
 }

@@ -7,5 +7,5 @@ export default combineReducers({
     // posts: postsReducer,
     // auth: authReducer,
     // etc.
-    posts
+    posts,
 });
